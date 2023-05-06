@@ -15,8 +15,10 @@
             android:name=".Home"
             android:exported="false" />
         <activity
-            android:name=".Register"
             android:name=".SignupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Register"
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
@@ -33,9 +35,6 @@
         <activity
             android:name=".LoginTest"
             android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"></activity>
     </application>
 
 </manifest>

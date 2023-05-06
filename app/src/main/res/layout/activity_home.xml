@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,9 +7,10 @@
     android:orientation="vertical"
     tools:context=".Home">
     <RelativeLayout
+        android:id="@+id/relativeLayot_main"
         android:layout_width="331dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center">
+        android:layout_marginLeft="28dp"
+        android:layout_height="60dp">
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -29,17 +30,19 @@
             tools:srcCompat="@tools:sample/avatars" />
     </RelativeLayout>
     <RelativeLayout
+        android:layout_below="@+id/relativeLayot_main"
+        android:id="@+id/relativeLayot_Share"
         android:layout_width="335dp"
         android:layout_height="49dp"
         android:layout_gravity="center"
         android:layout_marginTop="12dp"
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/share_drawble"
         android:padding="2dp">
         <ImageView
-            android:id="@+id/img_share"
+            android:id="@+id/img_Search"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginLeft="10dp"
@@ -50,15 +53,18 @@
             android:id="@+id/edt_share"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/img_share"
+            android:layout_toEndOf="@+id/img_Search"
             android:layout_marginLeft="5dp"
             android:text="Luong beo"
             android:textSize="20dp"
             android:backgroundTint="#D4D0D0"/>
     </RelativeLayout>
     <ScrollView
+        android:layout_below="@+id/relativeLayot_Share"
+        android:id="@+id/scrollView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/frame_Layout">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -133,12 +139,12 @@
                             android:layout_height="70dp"
                             android:background="#61D4D0D0"
                             android:padding="5dp"
-                            android:src="@drawable/buble_tea_icon" />
+                            android:src="@drawable/icon_milk_tea" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
-                            android:text="Tất cả"
+                            android:text="Trà sữa"
                             android:layout_marginTop="7dp"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
@@ -151,15 +157,36 @@
                         <ImageView
                             android:layout_width="70dp"
                             android:layout_height="70dp"
+                            android:background="#61D4D0D0"
+                            android:padding="5dp"
+                            android:src="@drawable/icon_cake" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="Bánh ngọt"
+                            android:layout_marginTop="7dp"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="24dp">
 
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
                             android:background="#61D4D0D0"
                             android:padding="5dp"
-                            android:src="@drawable/buble_tea_icon" />
+                            android:src="@drawable/icon_fruit_tea" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
-                            android:text="Tất cả"
+                            android:text="Trà trái cây"
                             android:layout_marginTop="7dp"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
@@ -174,32 +201,12 @@
                             android:layout_height="70dp"
                             android:background="#61D4D0D0"
                             android:padding="5dp"
-                            android:src="@drawable/buble_tea_icon" />
+                            android:src="@drawable/icon_coffee" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
-                            android:text="Tất cả"
-                            android:layout_marginTop="7dp"
-                            android:textColor="@color/black"
-                            android:textSize="13sp" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="24dp">
-                        <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:background="#61D4D0D0"
-                            android:padding="5dp"
-                            android:src="@drawable/buble_tea_icon" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:text="Tất cả"
+                            android:text="Cà phê"
                             android:layout_marginTop="7dp"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
@@ -239,17 +246,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
-                        android:background="#FFEABB"
+                        android:background="@drawable/item_product_drawble"
                         android:orientation="vertical"
                         android:layout_marginLeft="18dp">
-
                         <ImageView
                             android:layout_width="70dp"
                             android:layout_height="70dp"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"
+                            android:layout_gravity="center"
                             android:background="@drawable/milk_tea_olong" />
                         <TextView
                             android:layout_width="wrap_content"
@@ -258,7 +263,6 @@
                             android:text="Trà sữa Olong"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
@@ -281,30 +285,29 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
-                        android:background="#FFEABB"
+                        android:background="@drawable/item_product_drawble"
                         android:layout_marginLeft="15dp"
                         android:orientation="vertical">
                         <ImageView
-
                             android:layout_width="70dp"
                             android:layout_height="70dp"
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
-                            android:background="@drawable/milk_tea_olong"/>
+                            android:background="@drawable/icon_tea_peach_green"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:textSize="13sp"
-                            android:text="Trà sữa Olong"
+                            android:text="Trà xanh đào"
                             android:textColor="@color/black"
                             android:layout_gravity="center"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:textSize="11sp"
-                            android:text="50.000"
+                            android:text="55.000"
                             android:layout_marginTop="3dp"
                             android:textColor="@color/black"
                             android:layout_gravity="center"
@@ -320,30 +323,31 @@
                             android:layout_gravity="center"/>
                     </LinearLayout>
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
-                        android:background="#FFEABB"
+                        android:background="@drawable/item_product_drawble"
                         android:layout_marginLeft="15dp"
                         android:orientation="vertical">
-                        <ImageView
 
+                        <ImageView
                             android:layout_width="70dp"
                             android:layout_height="70dp"
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
-                            android:background="@drawable/milk_tea_olong"/>
+                            android:background="@drawable/icon_black_coffee" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:textSize="13sp"
-                            android:text="Trà sữa Olong"
+                            android:text="Cà phê đen"
                             android:textColor="@color/black"
                             android:layout_gravity="center"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:textSize="11sp"
-                            android:text="50.000"
+                            android:text="35.000"
                             android:layout_marginTop="3dp"
                             android:textColor="@color/black"
                             android:background="@drawable/underline"
@@ -352,16 +356,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:textSize="11sp"
-                            android:text="45.000"
+                            android:text="30.000"
                             android:layout_marginTop="3dp"
                             android:layout_marginBottom="8dp"
                             android:textColor="@color/black"
                             android:layout_gravity="center"/>
                     </LinearLayout>
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
-                        android:background="#FFEABB"
+                        android:background="@drawable/item_product_drawble"
                         android:layout_marginLeft="15dp"
                         android:orientation="vertical">
                         <ImageView
@@ -369,19 +373,19 @@
                             android:layout_height="70dp"
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
-                            android:background="@drawable/milk_tea_olong"/>
+                            android:background="@drawable/icon_chocolate_cake"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:textSize="13sp"
-                            android:text="Trà sữa Olong"
+                            android:text="Chocolate"
                             android:textColor="@color/black"
                             android:layout_gravity="center"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:textSize="11sp"
-                            android:text="50.000"
+                            android:text="35.000"
                             android:layout_marginTop="3dp"
                             android:textColor="@color/black"
                             android:background="@drawable/underline"
@@ -390,7 +394,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:textSize="11sp"
-                            android:text="45.000"
+                            android:text="25.000"
                             android:layout_marginTop="3dp"
                             android:layout_marginBottom="8dp"
                             android:textColor="@color/black"
@@ -417,6 +421,17 @@
                     android:background="@drawable/icon_star"
                     android:layout_gravity="center"/>
             </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_Product"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+    <FrameLayout
+        android:id="@+id/frame_Layout"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"/>
+</RelativeLayout>
