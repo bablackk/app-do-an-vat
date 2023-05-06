@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Home">
+    <RelativeLayout
+        android:layout_width="331dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:text="Menu"
+            android:textSize="36dp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            tools:srcCompat="@tools:sample/avatars" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="335dp"
+        android:layout_height="49dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/share_drawble"
+        android:padding="2dp">
+        <ImageView
+            android:id="@+id/img_share"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/item_search"/>
+        <EditText
+            android:id="@+id/edt_share"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/img_share"
+            android:layout_marginLeft="5dp"
+            android:text="Luong beo"
+            android:textSize="20dp"
+            android:backgroundTint="#D4D0D0"/>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_marginTop="12dp"
+                android:layout_width="349dp"
+                android:layout_height="129dp"
+                android:layout_gravity="center"
+                android:background="@drawable/banner_drawable">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="90.3dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/banner"/>
+                <TextView
+                    android:id="@+id/tv_free_shipping"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Free Shipping"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="5dp"
+                    android:textSize="30sp"
+                    android:textColor="#D98A54"
+                    android:layout_marginRight="5dp"/>
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/tv_free_shipping"
+                    android:textSize="18sp"
+                    android:layout_marginTop="10dp"
+                    android:text="Hóa đơn trên 100k"/>
+            </RelativeLayout>
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="24dp">
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="#F35F30"
+                            android:padding="5dp"
+                            android:src="@drawable/buble_tea_icon" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="Tất cả"
+                            android:layout_marginTop="7dp"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="24dp">
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="#61D4D0D0"
+                            android:padding="5dp"
+                            android:src="@drawable/buble_tea_icon" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="Tất cả"
+                            android:layout_marginTop="7dp"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="24dp">
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+
+                            android:background="#61D4D0D0"
+                            android:padding="5dp"
+                            android:src="@drawable/buble_tea_icon" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="Tất cả"
+                            android:layout_marginTop="7dp"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="24dp">
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="#61D4D0D0"
+                            android:padding="5dp"
+                            android:src="@drawable/buble_tea_icon" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="Tất cả"
+                            android:layout_marginTop="7dp"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="24dp">
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="#61D4D0D0"
+                            android:padding="5dp"
+                            android:src="@drawable/buble_tea_icon" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="Tất cả"
+                            android:layout_marginTop="7dp"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="13dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Deal Hot"
+                    android:textColor="@color/black"
+                    android:textSize="32sp" />
+
+                <ImageView
+                    android:layout_width="21dp"
+                    android:layout_height="24.15dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/deal_hot" />
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14.92dp"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#FFEABB"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="18dp">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@drawable/milk_tea_olong" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="Trà sữa Olong"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/underline"
+                            android:text="50.000"
+                            android:textColor="@color/black"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="45.000"
+                            android:textColor="@color/black"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#FFEABB"
+                        android:layout_marginLeft="15dp"
+                        android:orientation="vertical">
+                        <ImageView
+
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@drawable/milk_tea_olong"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="13sp"
+                            android:text="Trà sữa Olong"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="11sp"
+                            android:text="50.000"
+                            android:layout_marginTop="3dp"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center"
+                            android:background="@drawable/underline"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="11sp"
+                            android:text="45.000"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="8dp"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#FFEABB"
+                        android:layout_marginLeft="15dp"
+                        android:orientation="vertical">
+                        <ImageView
+
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@drawable/milk_tea_olong"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="13sp"
+                            android:text="Trà sữa Olong"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="11sp"
+                            android:text="50.000"
+                            android:layout_marginTop="3dp"
+                            android:textColor="@color/black"
+                            android:background="@drawable/underline"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="11sp"
+                            android:text="45.000"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="8dp"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#FFEABB"
+                        android:layout_marginLeft="15dp"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@drawable/milk_tea_olong"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="13sp"
+                            android:text="Trà sữa Olong"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="11sp"
+                            android:text="50.000"
+                            android:layout_marginTop="3dp"
+                            android:textColor="@color/black"
+                            android:background="@drawable/underline"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="11sp"
+                            android:text="45.000"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="8dp"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="13dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="32sp"
+                    android:text="Phổ Biến"/>
+                <ImageView
+                    android:layout_width="31dp"
+                    android:layout_height="30.58dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/icon_star"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
