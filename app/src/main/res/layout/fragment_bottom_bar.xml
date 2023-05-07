@@ -22,6 +22,7 @@
         android:layout_marginLeft="70dp"
         android:src="@drawable/icon_cart"/>
     <ImageView
+        android:id="@+id/layoutProfile"
         android:layout_width="24dp"
         android:layout_height="25.85dp"
         android:layout_marginLeft="70dp"
