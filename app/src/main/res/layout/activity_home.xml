@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".Home">
     <RelativeLayout
-        android:id="@+id/relativeLayot_main"
+        android:id="@+id/relativeLayout_main"
         android:layout_width="331dp"
         android:layout_marginLeft="28dp"
         android:layout_height="60dp">
@@ -30,7 +30,7 @@
             tools:srcCompat="@tools:sample/avatars" />
     </RelativeLayout>
     <RelativeLayout
-        android:layout_below="@+id/relativeLayot_main"
+        android:layout_below="@+id/relativeLayout_main"
         android:id="@+id/relativeLayot_Share"
         android:layout_width="335dp"
         android:layout_height="49dp"
@@ -163,7 +163,7 @@
         </LinearLayout>
     </ScrollView>
     <FrameLayout
-        android:id="@+id/frame_Layout"
+        android:id="@+id/action_bar"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="56dp"/>
