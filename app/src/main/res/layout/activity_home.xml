@@ -64,7 +64,8 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/frame_Layout">
+        android:layout_above="@+id/frame_Layout"
+        tools:ignore="UnknownId">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -103,7 +104,7 @@
                     android:text="Hóa đơn trên 100k"/>
             </RelativeLayout>
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcv_Type_Product"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -130,7 +131,7 @@
                     android:background="@drawable/deal_hot" />
             </LinearLayout>
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcv_deal_hot"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -155,7 +156,7 @@
                     android:background="@drawable/icon_star"
                     android:layout_gravity="center"/>
             </LinearLayout>
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_Product"
 
                 android:layout_width="match_parent"
