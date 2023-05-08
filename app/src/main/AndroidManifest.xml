@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,8 +16,26 @@
         android:theme="@style/Theme.App_do_an_vat"
         tools:targetApi="31">
         <activity
-            android:name=".Home"
+            android:name=".SearchList"
+            android:exported="false" />
+        <activity
+            android:name=".DetailFood"
+            android:exported="false" />
+        <activity
+            android:name=".FoodList"
+            android:exported="false" />
+        <activity
+            android:name=".AddFood"
             android:exported="true" />
+        <activity
+            android:name=".Home"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".SignupActivity"
             android:exported="true" />
@@ -26,11 +48,9 @@
         <activity
             android:name=".IntroActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <meta-data
+                android:name="CLOUDINARY_URL"
+                android:value="cloudinary://264464482455748:5_5M-_0dqnoo38vWynYtAtPhyNQ@dykvuub0y" />
         </activity>
     </application>
 

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DetailFood">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,12 +23,13 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <FrameLayout
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_alignParentLeft="true"
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="4dp"
                         android:layout_marginBottom="4dp"
+                        android:id="@+id/back_icon"
                         android:background="@drawable/background_return">
 
                         <Button
@@ -104,7 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#F35F30"
-                    android:textSize="35sp"
+                    android:textSize="25sp"
                     android:layout_marginLeft="19dp"
                     android:textStyle="bold"
                     android:text="35.000"/>
@@ -129,6 +132,7 @@
                         android:layout_marginLeft="14.4dp"
                         android:textColor="@color/black"
                         android:textStyle="bold"
+                        android:id="@+id/tvAmountProduct"
                         android:textSize="16sp"/>
                     <Button
                         android:id="@+id/btn_add_product"
