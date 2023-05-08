@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="40"
+    tools:context=".AddFood">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:background="@color/white_yellow">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:text="Thêm món ăn"
+            tools:ignore="MissingConstraints"/>
+
+        <ImageView
+            android:id="@+id/back_to_listfood"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic__back"
+            tools:ignore="MissingConstraints"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="13"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/imgv_add_product"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/add_food" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="18"
+        android:paddingTop="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edt_product_name"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/black"
+            android:hint="Tên món ăn"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:textSize="25dp" />
+
+        <EditText
+            android:id="@+id/edt_product_price"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="15dp"
+            android:hint="Giá món ăn"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:paddingLeft="10dp"
+            android:textSize="25dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp">
+
+            <TextView
+                android:id="@+id/tv_product_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:text="Phân loại: "
+                android:textSize="25dp" />
+
+            <Spinner
+                android:id="@+id/spn_product_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:spinnerMode="dropdown"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edt_product_descripe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:hint="Mô tả món ăn"
+            android:minHeight="48dp"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:maxLength="20"
+            android:paddingLeft="10dp"
+            android:textSize="25dp" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_add_product"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:layout_marginBottom="60dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:text="ADD FOOD"
+        android:background="@drawable/btn"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:id="@+id/bottom_bar">
+    </FrameLayout>
+
+</LinearLayout>
