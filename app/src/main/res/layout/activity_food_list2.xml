@@ -8,18 +8,18 @@
     tools:context=".FoodList">
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginBottom="50dp"
+        android:layout_height="70dp"
         android:id="@+id/lnrHolderTop">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="20dp"
+            android:textSize="30dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:text="Search"
-            android:background="@color/teal_200"
+            android:background="@color/white_yellow"
             android:id="@+id/tvHolder"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -30,7 +30,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/rcv_foodList">
-
         </androidx.recyclerview.widget.RecyclerView>
     </androidx.appcompat.widget.LinearLayoutCompat>
 

@@ -27,30 +27,36 @@ public class FoodList extends AppCompatActivity {
     RecyclerView rcvHolder;
     TextView tvHolder;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_list2);
         rcvHolder = findViewById(R.id.rcv_foodList);
         tvHolder = findViewById(R.id.tvHolder);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         sharedPref = getSharedPreferences("my_prefs", FoodList.MODE_PRIVATE);
         String type = sharedPref.getString("product_type","");
         tvHolder.setText(type);
         Log.e(TAG, "onCreate: " + type   );
         Cursor cursor = db.getFoodData();
-        while(cursor.moveToNext()) {
-            if(cursor.getString(3).equals(type))  {
+        if(type.equals("Tất cả")){
+            while (cursor.moveToNext()){
                 Food obj = new Food(cursor.getInt(0), cursor.getString(1),cursor.getString(2),cursor.getString(6),cursor.getString(4),cursor.getString(3),cursor.getInt(5));
                 FoodDataHolder.add(obj);
+            }
+
+        }else {
+            while (cursor.moveToNext()) {
+                if (cursor.getString(3).equals(type)) {
+                    Food obj = new Food(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(6), cursor.getString(4), cursor.getString(3), cursor.getInt(5));
+                    FoodDataHolder.add(obj);
+                }
             }
         }
         cursor.close();
         FoodAdapter foodAdapter = new FoodAdapter(FoodDataHolder,this,db);
-
         rcvHolder.setLayoutManager(gridLayoutManager);
         rcvHolder.setAdapter(foodAdapter);
-
-
     }
 }

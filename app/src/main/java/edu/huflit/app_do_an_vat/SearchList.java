@@ -32,7 +32,7 @@ public class SearchList extends AppCompatActivity {
         setContentView(R.layout.activity_search_list);
         rcvHolder = findViewById(R.id.rcv_foodListSearch);
         tvHolder = findViewById(R.id.tvHolderSearch);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         sharedPref = getSharedPreferences("my_prefs", FoodList.MODE_PRIVATE);
         String search_input = sharedPref.getString("search_input","");
         tvHolder.setText("Các mục liên quan tới " +search_input);
@@ -45,7 +45,6 @@ public class SearchList extends AppCompatActivity {
         }
         cursor.close();
         FoodAdapter foodAdapter = new FoodAdapter(FoodDataHolder,this,db);
-
         rcvHolder.setLayoutManager(gridLayoutManager);
         rcvHolder.setAdapter(foodAdapter);
 

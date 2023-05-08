@@ -66,8 +66,9 @@
     <ScrollView
         android:layout_below="@+id/relativeLayot_Share"
         android:id="@+id/scrollView"
+        android:layout_above="@+id/action_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -105,31 +106,127 @@
                     android:layout_marginTop="10dp"
                     android:text="Hóa đơn trên 100k"/>
             </RelativeLayout>
-            <Button
-                android:layout_width="wrap_content"
+            <HorizontalScrollView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnTraSua"
-                android:text="Trà sữa"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnTraTraiCay"
-                android:text="Trà trái cây"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnBanhNgot"
-                android:text="Bánh ngọt"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnCoffe"
-                android:text="Cà phê"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnADD"
-                android:text="ADD"/>
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="24dp">
+                        <ImageView
+                            android:id="@+id/img_all_type_food"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/background_hert_drawble"
+                            android:padding="5dp"
+                            android:src="@drawable/buble_tea_icon"/>
+                        <TextView
+                            android:id="@+id/tv_Name_Type_Product"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="Tất cả"
+                            android:layout_marginTop="7dp"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="24dp">
+                        <ImageView
+                            android:id="@+id/img_type_milk_tea"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/background_hert_drawble"
+                            android:padding="7dp"
+                            android:src="@drawable/icon_milk_tea" />
+                        <TextView
+                            android:id="@+id/tv_Name_Type_Product"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="Trà sữa"
+                            android:layout_marginTop="7dp"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="24dp">
+                        <ImageView
+                            android:id="@+id/img_type_cake"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/background_hert_drawble"
+                            android:padding="5dp"
+                            android:src="@drawable/icon_cake" />
+                        <TextView
+                            android:id="@+id/tv_Name_Type_Product"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="Bánh ngọt"
+                            android:layout_marginTop="7dp"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="24dp">
+                        <ImageView
+                            android:id="@+id/img_type_fruit_tea"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/background_hert_drawble"
+                            android:padding="5dp"
+                            android:src="@drawable/icon_fruit_tea" />
+                        <TextView
+                            android:id="@+id/tv_Name_Type_Product"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="Trà trái cây"
+                            android:layout_marginTop="7dp"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="24dp">
+                        <ImageView
+                            android:id="@+id/img_type_coffee"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/background_hert_drawble"
+                            android:padding="5dp"
+                            android:src="@drawable/icon_coffee" />
+                        <TextView
+                            android:id="@+id/tv_Name_Type_Product"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="Cà phê"
+                            android:layout_marginTop="7dp"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
 
 
 <!--            <androidx.recyclerview.widget.RecyclerView-->
@@ -187,9 +284,15 @@
             </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcv_Product_popular"
-
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/btnAdd"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/add_food"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"/>
         </LinearLayout>
     </ScrollView>
     <FrameLayout
