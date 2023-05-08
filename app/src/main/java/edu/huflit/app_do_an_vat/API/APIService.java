@@ -20,7 +20,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 
 public interface APIService {
-    static final String baseURL = "https://2792-183-80-95-59.ngrok-free.app/";
+    static final String baseURL = "https://appdoanvatbe-production.up.railway.app/";
     Gson gson = new GsonBuilder().setLenient().create();
     APIService apiService = new Retrofit.Builder()
             .baseUrl(baseURL)
