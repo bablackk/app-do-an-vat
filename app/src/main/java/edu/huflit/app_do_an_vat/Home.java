@@ -31,6 +31,7 @@ public class Home extends AppCompatActivity {
     EditText edtSearch;
     DBHelper db = new DBHelper(this);
     RecyclerView rcvPopular;
+    SharedPreferences sharedPreferences;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -51,6 +52,14 @@ public class Home extends AppCompatActivity {
         btnAdd = findViewById(R.id.btnAdd);
         img_Search = findViewById(R.id.img_Search);
         edtSearch = findViewById(R.id.edt_search);
+        sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+        String role = sharedPreferences.getString("role", "");
+        if(role.equals("admin")){
+            btnAdd.setVisibility(View.VISIBLE);
+        }
+        else{
+            btnAdd.setVisibility(View.GONE);
+        }
 
 
         Cursor cursor = db.getFoodData();
