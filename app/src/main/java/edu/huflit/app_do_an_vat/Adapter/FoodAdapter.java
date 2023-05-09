@@ -49,6 +49,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
     String Loai[] = {"Trà sữa" , "Bánh ngọt" , "Trà trái cây" , "Cà phê"};
     String procate;
     DBHelper db;
+    SharedPreferences sharedPreferences;
 
     public FoodAdapter(ArrayList<Food> mListFood, Context mContext, DBHelper db) {
         this.mListFood = mListFood;
@@ -87,6 +88,11 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         holder.rltFoodItem.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+                sharedPreferences = mContext.getSharedPreferences("data",mContext.MODE_PRIVATE);
+                String role = sharedPreferences.getString("role","");
+                if(!role.equals("admin")) {
+                    return false;
+                }
                 handlePopular(product_id,url_product,price_product,product_rate,describe_product,name_product);
                 return true;
             }
