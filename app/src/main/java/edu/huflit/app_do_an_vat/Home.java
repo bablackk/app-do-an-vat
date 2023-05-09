@@ -26,9 +26,7 @@ import edu.huflit.app_do_an_vat.Model.Topping;
 
 public class Home extends AppCompatActivity {
 
-    Button btnTraSua,btnBanhNgot,btnTraTraiCay,btnCaPhe,btnAdd;
-    TextView tvTypeFood;
-    ImageView img_Search;
+    ImageView img_Search,btnTraSua,btnBanhNgot,btnTraTraiCay,btnCaPhe, btnAll,btnAdd;
     ArrayList<Food> PopularFoodDataHolder = new ArrayList<>();
     EditText edtSearch;
     DBHelper db = new DBHelper(this);
@@ -41,19 +39,18 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Fragment bar = new bottom_bar();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,3);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
         fragmentTransaction.add(R.id.action_bar, bar).commit();
-        btnBanhNgot = findViewById(R.id.btnBanhNgot);
-        btnCaPhe= findViewById(R.id.btnCoffe);
-        btnTraSua = findViewById(R.id.btnTraSua);
-        btnTraTraiCay = findViewById(R.id.btnTraTraiCay);
+        btnBanhNgot = findViewById(R.id.img_type_cake);
+        btnAll = findViewById(R.id.img_all_type_food);
+        btnCaPhe= findViewById(R.id.img_type_coffee);
+        btnCaPhe= findViewById(R.id.img_type_coffee);
+        btnTraSua = findViewById(R.id.img_type_milk_tea);
+        btnTraTraiCay = findViewById(R.id.img_type_fruit_tea);
         rcvPopular = findViewById(R.id.rcv_Product_popular);
-        btnAdd = findViewById(R.id.btnADD);
+        btnAdd = findViewById(R.id.btnAdd);
         img_Search = findViewById(R.id.img_Search);
         edtSearch = findViewById(R.id.edt_search);
-        if(db.getTopping().getCount() == 0) {
-            createToppingData();
-        }
 
         Cursor cursor = db.getFoodData();
         while(cursor.moveToNext()) {
@@ -72,12 +69,21 @@ public class Home extends AppCompatActivity {
             public void onClick(View view) {
                 SharedPreferences sharedPref = Home.this.getSharedPreferences("my_prefs",Home.this.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString("product_type", btnTraTraiCay.getText().toString());
+                editor.putString("product_type", "Trà trái cây");
                 editor.apply();
                 Intent i = new Intent(Home.this,FoodList.class);
                 startActivity(i);
-
-
+            }
+        });
+        btnAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedPref = Home.this.getSharedPreferences("my_prefs",Home.this.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("product_type", "Tất cả");
+                editor.apply();
+                Intent i = new Intent(Home.this,FoodList.class);
+                startActivity(i);
             }
         });
         btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +98,7 @@ public class Home extends AppCompatActivity {
             public void onClick(View view) {
                 SharedPreferences sharedPref = Home.this.getSharedPreferences("my_prefs",Home.this.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString("product_type", btnTraSua.getText().toString());
+                editor.putString("product_type", "Trà sữa");
                 editor.apply();
                 Intent i = new Intent(Home.this,FoodList.class);
                 startActivity(i);
@@ -105,7 +111,7 @@ public class Home extends AppCompatActivity {
             public void onClick(View view) {
                 SharedPreferences sharedPref = Home.this.getSharedPreferences("my_prefs",Home.this.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString("product_type", btnCaPhe.getText().toString());
+                editor.putString("product_type", "Cà phê");
                 editor.apply();
                 Intent i = new Intent(Home.this,FoodList.class);
                 startActivity(i);
@@ -118,7 +124,7 @@ public class Home extends AppCompatActivity {
             public void onClick(View view) {
                 SharedPreferences sharedPref = Home.this.getSharedPreferences("my_prefs",Home.this.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString("product_type", btnBanhNgot.getText().toString());
+                editor.putString("product_type", "Bánh ngọt");
                 editor.apply();
                 Intent i = new Intent(Home.this,FoodList.class);
                 startActivity(i);

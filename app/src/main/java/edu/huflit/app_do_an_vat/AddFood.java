@@ -72,6 +72,7 @@ public class AddFood extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(AddFood.this,Home.class);
+                finish();
                 startActivity(i);
             }
         });

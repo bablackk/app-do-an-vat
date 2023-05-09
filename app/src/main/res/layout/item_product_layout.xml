@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="130dp"
-    android:layout_height="150dp"
+    android:layout_width="150dp"
+    android:layout_height="180dp"
     android:id="@+id/rltFoodItem"
-    android:layout_marginRight="30dp"
+    android:layout_marginTop="25dp"
+    android:layout_marginLeft="25dp"
+    android:layout_marginRight="25dp"
     android:background="@drawable/item_product_drawble">
     <FrameLayout
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:layout_marginTop="12dp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="12dp"
+        android:layout_marginRight="7dp"
         android:background="@drawable/background_hert_drawble">
         <ImageView
             android:layout_width="12dp"
@@ -27,7 +29,7 @@
             android:id="@+id/img_Product1"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/icon_black_coffee"/>
         <TextView
             android:id="@+id/tv_Name_Product"
@@ -36,6 +38,7 @@
             android:textColor="@color/black"
             android:textSize="17sp"
             android:textStyle="bold"
+            android:layout_marginTop="4dp"
             android:text="Trà bí đao"/>
         <TextView
             android:id="@+id/tv_price_product"

@@ -47,7 +47,7 @@ public class FoodPopularAdapter extends RecyclerView.Adapter<FoodPopularAdapter.
     @NonNull
     @Override
     public FoodPopularViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_deal_hot_product,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product_layout,parent,false);
         return new FoodPopularViewHolder(view);
     }
 
@@ -113,10 +113,10 @@ public class FoodPopularAdapter extends RecyclerView.Adapter<FoodPopularAdapter.
         private RelativeLayout rltFoodItem;
         public FoodPopularViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvNameProduct = itemView.findViewById(R.id.tv_Name_Product_popular);
-            tvPriceProduct = itemView.findViewById(R.id.tv_price_product_popular);
-            imgvProduct = itemView.findViewById(R.id.img_Product_popular);
-            rltFoodItem = itemView.findViewById(R.id.rltFoodItem_popuular);
+            tvNameProduct = itemView.findViewById(R.id.tv_Name_Product);
+            tvPriceProduct = itemView.findViewById(R.id.tv_price_product);
+            imgvProduct = itemView.findViewById(R.id.img_Product1);
+            rltFoodItem = itemView.findViewById(R.id.rltFoodItem);
         }
     }
     private void handlePopular(int positonid) {
