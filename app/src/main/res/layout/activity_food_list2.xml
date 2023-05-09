@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".FoodList">
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:id="@+id/lnrHolderTop">
@@ -21,7 +21,15 @@
             android:text="Search"
             android:background="@color/white_yellow"
             android:id="@+id/tvHolder"/>
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        <ImageView
+            android:id="@+id/back_to_home"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic__back"
+            tools:ignore="MissingConstraints"/>
+    </RelativeLayout>
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

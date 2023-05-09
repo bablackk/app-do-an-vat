@@ -68,6 +68,7 @@ public class DetailFood extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(DetailFood.this,Home.class);
                 startActivity(i);
+                finish();
             }
         });
         NumberFormat vndFormat = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
