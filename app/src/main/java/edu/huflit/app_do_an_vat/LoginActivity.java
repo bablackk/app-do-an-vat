@@ -90,6 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putString("token", loginResponse.getToken());
                 editor.putString("email", loginResponse.getEmail());
                 editor.putString("name", loginResponse.getPhone());
+                editor.putString("role", loginResponse.getRole());
                 editor.apply();
                 Log.e("token", loginResponse.getToken());
                 Intent i = new Intent(LoginActivity.this, Home.class);
