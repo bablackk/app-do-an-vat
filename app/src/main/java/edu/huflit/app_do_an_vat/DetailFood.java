@@ -100,6 +100,18 @@ public class DetailFood extends AppCompatActivity {
                 updateBuyStatus();
             }
         });
+        btn_add_to_cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sharedPref = getSharedPreferences("my_prefs",MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("ordered_product_name", name);
+                editor.putString("ordered_product_quantity", tvAmountProduct.getText().toString());
+                editor.apply();
+                Intent i = new Intent(DetailFood.this,Successful_Food.class);
+                startActivity(i);
+            }
+        });
         DBHelper db = new DBHelper(this);
         Cursor cursor = db.getTopping();
         while(cursor.moveToNext()) {

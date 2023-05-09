@@ -23,6 +23,14 @@
             android:textColor="@color/black"
             android:textSize="40dp"
             android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/food_ordered"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:text="TEST"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
