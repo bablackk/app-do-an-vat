@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import edu.huflit.app_do_an_vat.Adapter.ToppingAdapter;
+import edu.huflit.app_do_an_vat.Database.DBHelper;
 import edu.huflit.app_do_an_vat.Model.Topping;
 
 public class DetailFood extends AppCompatActivity {
@@ -32,8 +35,11 @@ public class DetailFood extends AppCompatActivity {
 
     ImageView imgvProduct;
     RecyclerView rcv_topping;
+    private MyAsyncTask myAsyncTask;
     int realTimeAmount,priceInt;
+    int totalprice;
     Button btnExit,btn_add_to_cart,btnPlus,btnSubtract;
+    DBHelper db= new DBHelper(this);
 
 
     @Override
@@ -50,6 +56,11 @@ public class DetailFood extends AppCompatActivity {
         btnSubtract = findViewById(R.id.btn_subtract_product);
         rcv_topping = findViewById(R.id.rcv_topping);
         tvAmountProduct = findViewById(R.id.tvAmountProduct);
+
+
+        myAsyncTask = new MyAsyncTask();
+        myAsyncTask.execute();
+
         LinearLayoutManager ln1 = new LinearLayoutManager(this);
         sharedPref = getSharedPreferences("my_prefs", FoodList.MODE_PRIVATE);
         String type = sharedPref.getString("product_type","");
@@ -93,15 +104,13 @@ public class DetailFood extends AppCompatActivity {
                 updateBuyStatus();
             }
         });
-
-
-
-        Topping obj = new Topping("https://cdn.discordapp.com/attachments/941739362222211072/1105049624303108176/1123.png","Topping test",12000);
-        Topping obj1 = new Topping("https://cdn.discordapp.com/attachments/941739362222211072/1105049624303108176/1123.png","Topping test",12000);
-        Topping obj2 = new Topping("https://cdn.discordapp.com/attachments/941739362222211072/1105049624303108176/1123.png","Topping test",12000);
-        toppingDataHolder.add(obj);
-        toppingDataHolder.add(obj1);
-        toppingDataHolder.add(obj2);
+        DBHelper db = new DBHelper(this);
+        Cursor cursor = db.getTopping();
+        while(cursor.moveToNext()) {
+            int stt = db.getTopping().getCount();
+            Topping obj = new Topping(stt+1,cursor.getString(1),cursor.getString(2),cursor.getInt( 3));
+            toppingDataHolder.add(obj);
+        }
         rcv_topping.setLayoutManager(ln1);
         ToppingAdapter toppingAdapter = new ToppingAdapter(toppingDataHolder,this);
         rcv_topping.setAdapter(toppingAdapter);
@@ -109,14 +118,29 @@ public class DetailFood extends AppCompatActivity {
     }
     void updateBuyStatus(){
         NumberFormat vndFormat = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
-        sharedPref = getSharedPreferences("my_prefs", FoodList.MODE_PRIVATE);
-        int price = sharedPref.getInt("topping_price",0);
-        int amount= sharedPref.getInt("topping_amount",0);
-        Log.e(TAG, "updateBuyStatus: "+price+ "/" +amount );
-        int totalprice = Integer.valueOf(tvAmountProduct.getText().toString()) * priceInt + price*amount;
-        String formattedTotalPrice = vndFormat.format(Integer.valueOf(totalprice));
-
+        sharedPref = getSharedPreferences("my_prefs",MODE_PRIVATE);
+        int totalToppingPrice = sharedPref.getInt("total_topping_price", 0);
+        totalprice = Integer.valueOf(tvAmountProduct.getText().toString()) * priceInt;
+        int totalPriceWithTOpping= 0;
+        totalPriceWithTOpping += totalprice;
+         int priceShow = totalprice + totalPriceWithTOpping;
+        String formattedTotalPrice = vndFormat.format(priceShow);
         btn_add_to_cart.setText("Thêm vào giỏ hàng "+formattedTotalPrice);
     }
+    private class MyAsyncTask extends AsyncTask<Void, Void, Void> {
 
+        @Override
+        protected Void doInBackground(Void... voids) {
+            while (!isCancelled()) {
+                updateBuyStatus();
+                publishProgress();
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+    }
 }

@@ -51,6 +51,9 @@ public class Home extends AppCompatActivity {
         btnAdd = findViewById(R.id.btnADD);
         img_Search = findViewById(R.id.img_Search);
         edtSearch = findViewById(R.id.edt_search);
+        if(db.getTopping().getCount() == 0) {
+            createToppingData();
+        }
 
         Cursor cursor = db.getFoodData();
         while(cursor.moveToNext()) {
@@ -138,5 +141,15 @@ public class Home extends AppCompatActivity {
 
 
 
+    }
+    public void createToppingData() {
+
+        DBHelper db = new DBHelper(this);
+
+        db.insertToppingData(1,"https://cdn.discordapp.com/attachments/941739362222211072/1105049624303108176/1123.png","Topping test 1",12000,0);
+
+        db.insertToppingData(2,"https://cdn.discordapp.com/attachments/941739362222211072/1105049624303108176/1123.png","Topping test 2",14000,0);
+
+        db.insertToppingData(3,"https://cdn.discordapp.com/attachments/941739362222211072/1105049624303108176/1123.png","Topping test 3",16000,0);
     }
 }

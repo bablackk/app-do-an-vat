@@ -34,59 +34,38 @@ public class DBHelper extends SQLiteOpenHelper {
                 "food_rate TEXT," +
                 "food_price INTEGER," +
                 "food_describe TEXT) ");
+        String createTableTopping = ("CREATE TABLE topping" +
+                "(topping_id INTEGER primary key autoincrement," +
+                "topping_url TEXT," +
+                "topping_name TEXT," +
+                "topping_price INTEGER," +
+                "topping_amount INTEGER) ");
         MyDB.execSQL(createTableCustomer);
         MyDB.execSQL(createTableFood);
+        MyDB.execSQL(createTableTopping);
     }
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
         MyDB.execSQL("drop Table if exists customer");
         MyDB.execSQL("drop Table if exists food");
+        MyDB.execSQL("drop Table if exists topping");
 
     }
 
-    public boolean insertCustomerData(String customer_username, String customer_password, String customer_name,String customer_phone_number) {
+    public boolean insertToppingData(Integer topping_id, String topping_url, String topping_name,int topping_price,int topping_amount) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("customer_username",customer_username);
-        contentValues.put("customer_password",customer_password);
-        contentValues.put("customer_name",customer_name);
-        contentValues.put("customer_phone_number",customer_phone_number);
-        long result = MyDB.insert("customer" , null,contentValues);
+        contentValues.put("topping_id",topping_id);
+        contentValues.put("topping_url",topping_url);
+        contentValues.put("topping_name",topping_name);
+        contentValues.put("topping_price",topping_price);
+        contentValues.put("topping_amount",topping_amount);
+        long result = MyDB.insert("topping" , null,contentValues);
         if(result == -1) return false;
         else
             return true;
-
-
     }
-    public boolean updateCustomerData(String customer_username, String customer_password, String customer_name,String customer_phone_number) {
-        SQLiteDatabase MyDB = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("customer_username",customer_username);
-        contentValues.put("customer_password",customer_password);
-        contentValues.put("customer_name",customer_name);
-        contentValues.put("customer_phone_number",customer_phone_number);
-        Cursor cursor  = MyDB.rawQuery("Select * from customer where customer_username = ?", new String[] {customer_username});
-        if(cursor.getCount() > 0 ) {
-            long result = MyDB.update("customer" , contentValues , "customer_username=?", new String[] {customer_username});
-            if(result == -1) return false;
-            else
-                return true;
-        }else return false;
 
-    }
-    public Boolean deleteOrderingData(String customer_username ) {
-        SQLiteDatabase MyDB = this.getWritableDatabase();
-
-
-        Cursor cursor  = MyDB.rawQuery("Select * from customer where customer_username = ?", new String[] {customer_username});
-        if(cursor.getCount() > 0 ) {
-            long result = MyDB.delete("customer"  , "customer_username=?", new String[] {customer_username});
-            if(result == -1) return false;
-            else
-                return true;
-        }else return false;
-
-    }
     public boolean insertFoodData(int food_id,String food_url, String product_name, int product_price,String product_rate,String product_type,String product_describe) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -114,6 +93,16 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
         return rowsUpdated >0;
     }
+    public boolean updateToppingAmount(int topping_id,int topping_amount) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("topping_amount", topping_amount);
+        String whereClause = "topping_id=?";
+        String[] whereArgs = new String[] { String.valueOf(topping_id) };
+        int rowsUpdated = db.update("topping", values, whereClause, whereArgs);
+        db.close();
+        return rowsUpdated >0;
+    }
     public boolean updateFoodData(int food_id,String food_url, String product_name, int product_price,String product_rate,String product_type,String product_describe) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -124,9 +113,9 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("food_type", product_type);
         contentValues.put("food_price",product_price);
         contentValues.put("food_describe",product_describe);
-        Cursor cursor  = MyDB.rawQuery("Select * from food_id where food_id = ?", new String[] {String.valueOf(food_id)});
+        Cursor cursor  = MyDB.rawQuery("Select * from food where food_id = ?", new String[] {String.valueOf(food_id)});
         if(cursor.getCount() > 0 ) {
-            long result = MyDB.update("customer" , contentValues , "food_id=?", new String[] {String.valueOf(food_id)});
+            long result = MyDB.update("food" , contentValues , "food_id=?", new String[] {String.valueOf(food_id)});
             if(result == -1) return false;
             else
                 return true;
@@ -152,23 +141,12 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
-//    public Boolean checkUsernameandpassword( String username ,String password) {
-//        SQLiteDatabase MyDB = this.getWritableDatabase();
-//        Cursor cursor = MyDB.rawQuery("Select * from customer where customer_username = ? and customer_password = ? " , new String[] {  username,password});
-//        if(cursor.getCount() > 0)
-//            return true;
-//        else
-//            return false;
-//    }
-//    public Boolean checkUsername(String customer_username) {
-//        SQLiteDatabase MyDB = this.getWritableDatabase();
-//        Cursor cursor = MyDB.rawQuery("Select * from customer where customer_username = ?" , new String[] {customer_username});
-//        if(cursor.getCount() > 0)
-//            return true;
-//        else
-//            return false;
-//    }
-//
+    public Cursor getTopping() {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        Cursor cursor  = MyDB.rawQuery("Select * from topping ",null    );
+        return cursor;
+
+    }
 
 }
 
