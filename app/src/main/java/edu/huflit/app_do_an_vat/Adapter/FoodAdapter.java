@@ -44,8 +44,6 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
     ArrayList<Food> mListFood;
     Context mContext;
     Dialog dialog;
-    String url_product,type_product,name_product,describe_product;
-    int price_product;
     String Loai[] = {"Trà sữa" , "Bánh ngọt" , "Trà trái cây" , "Cà phê"};
     String procate;
     DBHelper db;
@@ -76,22 +74,14 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 
         holder.tvNameProduct.setText(mListFood.get(i).getFood_name());
         holder.tvPriceProduct.setText(String.valueOf(mListFood.get(i).getFood_price()));
-        url_product=mListFood.get(i).getFood_url();
-        type_product= mListFood.get(i).getFood_type();
+        String url_product=mListFood.get(i).getFood_url();
+        String type_product= mListFood.get(i).getFood_type();
         String product_rate = mListFood.get(i).getFood_rate();
         Integer product_id  = mListFood.get(i).getFood_id();
         Log.e(TAG, "onBindViewHolder: " +product_id );
-        name_product = mListFood.get(i).getFood_name();
-        describe_product = mListFood.get(i).getFoodDescribe();
-        price_product = mListFood.get(i).getFood_price();
-
-        holder.rltFoodItem.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                handlePopular(product_id,url_product,price_product,product_rate,describe_product,name_product);
-                return true;
-            }
-        });
+        String name_product = mListFood.get(i).getFood_name();
+        String describe_product = mListFood.get(i).getFoodDescribe();
+        int price_product = mListFood.get(i).getFood_price();
         holder.rltFoodItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,6 +94,14 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
                 editor.apply();
                 Intent i = new Intent(mContext, DetailFood.class);
                 mContext.startActivity(i);
+            }
+        });
+
+        holder.rltFoodItem.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                handlePopular(product_id,url_product,price_product,product_rate,describe_product,name_product);
+                return true;
             }
         });
 
@@ -159,6 +157,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
     }
     private void dialogUpdate(int id,String url,String name, int price, String product_rate, String descripe) {
         dialog = new Dialog(mContext);
+
         dialog.setContentView(R.layout.dialog_update_food);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         db = new DBHelper(mContext);
