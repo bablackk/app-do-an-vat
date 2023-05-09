@@ -55,6 +55,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         this.mContext = mContext;
         this.db = db;
     }
+    //ViewHolder + RecyclerView
 
     @NonNull
     @Override
