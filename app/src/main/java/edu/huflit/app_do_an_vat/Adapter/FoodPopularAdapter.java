@@ -38,6 +38,7 @@ public class FoodPopularAdapter extends RecyclerView.Adapter<FoodPopularAdapter.
     String url_product,type_product,name_product,describe_product;
     int price_product;
     DBHelper db;
+    SharedPreferences sharedPreferences;
 
     public FoodPopularAdapter(ArrayList<Food> mListFoodPopular, Context mContext) {
         this.mListFoodPopular = mListFoodPopular;
@@ -84,21 +85,25 @@ public class FoodPopularAdapter extends RecyclerView.Adapter<FoodPopularAdapter.
                 mContext.startActivity(i);
             }
         });
-        holder.rltFoodItem.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                handlePopular(product_id);
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent i = new Intent(mContext,Home.class);
-                        mContext.startActivity(i);
-                    }
-                }, 3000);
-                return true;
-            }
-        });
+        sharedPreferences = mContext.getSharedPreferences("data", Context.MODE_PRIVATE);
+        String role = sharedPreferences.getString("role", "");
+        if(role.equals("admin")) {
+            holder.rltFoodItem.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    handlePopular(product_id);
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent i = new Intent(mContext,Home.class);
+                            mContext.startActivity(i);
+                        }
+                    }, 3000);
+                    return true;
+                }
+            });
+        }
     }
 
 
