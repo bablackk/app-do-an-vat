@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:layout_marginStart="5dp"
     android:layout_marginEnd="5dp"
-    android:weightSum="26"
     tools:context=".EditProfileFragment">
 
     <LinearLayout
@@ -25,7 +24,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="13dp"
             android:background="@drawable/shape_et"
             android:orientation="vertical">
             <EditText
@@ -35,39 +34,11 @@
                 android:textSize="20dp"
                 android:background="@null"
                 android:textColor="@color/black"
-                android:text="Jessica"
+                android:text=""
                 tools:ignore="DuplicateIds" />
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:layout_margin="5dp"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:text="E-mail" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:background="@drawable/shape_et"
-            android:orientation="vertical">
-            <EditText
-                android:id="@+id/etEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:background="@null"
-                android:textColor="@color/black"
-                android:text="jessica123@gmail.com" />
-        </LinearLayout>
-    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -84,7 +55,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="13dp"
             android:background="@drawable/shape_et"
             android:orientation="vertical">
             <EditText
@@ -94,7 +65,7 @@
                 android:textSize="20dp"
                 android:background="@null"
                 android:textColor="@color/black"
-                android:text="0123" />
+                android:text="" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -113,7 +84,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="13dp"
             android:background="@drawable/shape_et"
             android:orientation="vertical">
             <EditText
@@ -123,7 +94,7 @@
                 android:textSize="20dp"
                 android:background="@null"
                 android:textColor="@color/black"
-                android:text="nha be" />
+                android:text="" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -142,7 +113,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="13dp"
             android:background="@drawable/shape_et"
             android:orientation="vertical">
             <EditText
@@ -152,7 +123,7 @@
                 android:textSize="20dp"
                 android:background="@null"
                 android:textColor="@color/black"
-                android:text="hcm" />
+                android:text="" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -171,7 +142,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="13dp"
             android:background="@drawable/shape_et"
             android:orientation="vertical">
             <EditText
@@ -181,7 +152,7 @@
                 android:textSize="20dp"
                 android:background="@null"
                 android:textColor="@color/black"
-                android:text="sư vạn hạnh" />
+                android:text="" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
