@@ -61,6 +61,7 @@ public class Home extends AppCompatActivity {
         }
         rcvPopular.setLayoutManager(gridLayoutManager);
         FoodPopularAdapter foodPopularAdapter = new FoodPopularAdapter(PopularFoodDataHolder,this);
+
         rcvPopular.setAdapter(foodPopularAdapter);
 
         btnTraTraiCay.setOnClickListener(new View.OnClickListener() {
@@ -143,6 +144,18 @@ public class Home extends AppCompatActivity {
                 edtSearch.setText("");
             }
         });
-    }
 
+
+
+    }
+    public void createToppingData() {
+
+        DBHelper db = new DBHelper(this);
+
+        db.insertToppingData(1,"https://cdn.discordapp.com/attachments/941739362222211072/1105049624303108176/1123.png","Topping test 1",12000,0);
+
+        db.insertToppingData(2,"https://cdn.discordapp.com/attachments/941739362222211072/1105049624303108176/1123.png","Topping test 2",14000,0);
+
+        db.insertToppingData(3,"https://cdn.discordapp.com/attachments/941739362222211072/1105049624303108176/1123.png","Topping test 3",16000,0);
+    }
 }

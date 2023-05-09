@@ -2,12 +2,21 @@ package edu.huflit.app_do_an_vat.Model;
 
 public class Topping {
     private  String topping_url,topping_name;
-    private int topping_price;
+    private int topping_price,topping_id;
 
-    public Topping(String topping_url, String topping_name, int topping_price) {
+    public Topping(int topping_id,String topping_url, String topping_name, int topping_price) {
         this.topping_url = topping_url;
         this.topping_name = topping_name;
         this.topping_price = topping_price;
+        this.topping_id = topping_id;
+    }
+
+    public int getTopping_id() {
+        return topping_id;
+    }
+
+    public void setTopping_id(int topping_id) {
+        this.topping_id = topping_id;
     }
 
     public String getTopping_url() {
