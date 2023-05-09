@@ -35,7 +35,6 @@ public class DetailFood extends AppCompatActivity {
 
     ImageView imgvProduct;
     RecyclerView rcv_topping;
-    private MyAsyncTask myAsyncTask;
     int realTimeAmount,priceInt;
     int totalprice;
     Button btnExit,btn_add_to_cart,btnPlus,btnSubtract;
@@ -56,10 +55,6 @@ public class DetailFood extends AppCompatActivity {
         btnSubtract = findViewById(R.id.btn_subtract_product);
         rcv_topping = findViewById(R.id.rcv_topping);
         tvAmountProduct = findViewById(R.id.tvAmountProduct);
-
-
-        myAsyncTask = new MyAsyncTask();
-        myAsyncTask.execute();
 
         LinearLayoutManager ln1 = new LinearLayoutManager(this);
         sharedPref = getSharedPreferences("my_prefs", FoodList.MODE_PRIVATE);
@@ -118,29 +113,9 @@ public class DetailFood extends AppCompatActivity {
     }
     void updateBuyStatus(){
         NumberFormat vndFormat = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
-        sharedPref = getSharedPreferences("my_prefs",MODE_PRIVATE);
-        int totalToppingPrice = sharedPref.getInt("total_topping_price", 0);
         totalprice = Integer.valueOf(tvAmountProduct.getText().toString()) * priceInt;
-        int totalPriceWithTOpping= 0;
-        totalPriceWithTOpping += totalprice;
-         int priceShow = totalprice + totalPriceWithTOpping;
-        String formattedTotalPrice = vndFormat.format(priceShow);
+        String formattedTotalPrice = vndFormat.format(totalprice);
         btn_add_to_cart.setText("Thêm vào giỏ hàng "+formattedTotalPrice);
     }
-    private class MyAsyncTask extends AsyncTask<Void, Void, Void> {
 
-        @Override
-        protected Void doInBackground(Void... voids) {
-            while (!isCancelled()) {
-                updateBuyStatus();
-                publishProgress();
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-            return null;
-        }
-    }
 }
