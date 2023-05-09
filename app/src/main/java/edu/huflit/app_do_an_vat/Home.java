@@ -54,6 +54,9 @@ public class Home extends AppCompatActivity {
         edtSearch = findViewById(R.id.edt_search);
         sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
         String role = sharedPreferences.getString("role", "");
+        if(db.getTopping().getCount() == 0) {
+            createToppingData();
+        }
         if(role.equals("admin")){
             btnAdd.setVisibility(View.VISIBLE);
         }
